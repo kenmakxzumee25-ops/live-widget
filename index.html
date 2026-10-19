@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Widget Bubble Ikan Biru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#7d8794;--blue:#8fb3e6;--deep:#5f8fd6;--soft:#eaf2ff;--text:#5f8fd6;--pink:#f6b8cf;--purple:#b9a2e8}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:transparent}
+body{background:transparent;font-family:'Fredoka','Baloo 2','Quicksand',system-ui,sans-serif;padding:50px 50px 40px;margin:0}
+.note{color:#fff;font-size:13px;opacity:.8;text-align:center}
+.w{position:relative;width:100%;display:none}.w.on{display:block}
+.bubble{position:relative;background:var(--soft);border:3px solid var(--blue);border-radius:22px;box-shadow:0 0 0 4px #fff;padding:30px 28px 34px;color:var(--text);font-size:26px;font-weight:600}
+.tag{position:absolute;top:-24px;left:18px;background:#fff;border:3px solid var(--blue);border-radius:14px 14px 14px 4px;padding:3px 14px;font-size:16px;font-weight:700;color:var(--deep);display:flex;align-items:center;gap:6px;box-shadow:0 0 0 3px #fff}
+.tag svg{width:20px;height:20px}
+.deco{position:absolute;pointer-events:none}
+.fish{width:54px;height:36px}
+/* A: scallop */
+.A .bubble{background:linear-gradient(var(--soft),var(--soft))}
+.A .bubble::after{content:"";position:absolute;left:0;right:0;bottom:0;height:16px;background:radial-gradient(circle at 12px 16px,#cfe0fa 11px,transparent 12px) 0 0/24px 16px repeat-x;border-radius:0 0 18px 18px}
+/* B: frill */
+.B .bubble::after{content:"";position:absolute;left:10px;right:10px;bottom:4px;height:12px;background:repeating-linear-gradient(90deg,#fff 0 12px,#cfe0fa 12px 15px);border-radius:4px 4px 10px 10px}
+.badge{width:62px;height:62px;border-radius:50%;background:#fff;border:3px solid var(--blue);display:grid;place-items:center;box-shadow:0 0 0 3px #fff}
+/* C: dashed */
+.C .bubble{background:#fff;border-color:#c9d6ea}
+.C .bubble::before{content:"";position:absolute;inset:8px;border:2px dashed var(--blue);border-radius:16px;pointer-events:none}
+.C .tag{background:var(--deep);color:#fff;border-color:#dce8fa}
+.bub{border-radius:50%;background:var(--blue);opacity:.8}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <symbol id="fish" viewBox="0 0 54 36"><path d="M42 18 54 6v24z" fill="#7ea6e0"/><ellipse cx="22" cy="18" rx="22" ry="15" fill="#8fb3e6" stroke="#6f98d8" stroke-width="2"/><circle cx="12" cy="14" r="2.4" fill="#4a6fb3"/><path d="M24 8q5 10 0 20" stroke="#6f98d8" stroke-width="2" fill="none"/></symbol>
+  <symbol id="star" viewBox="0 0 40 40"><path d="M20 3l4.5 11.5L37 15l-9.5 8 3.2 12.5L20 28l-10.7 7.5L12.5 23 3 15l12.5-.5z" fill="#f6b8cf" stroke="#eea0bd" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="heart" viewBox="0 0 30 28"><path d="M15 26C3 17 2 9 7 5c4-3 7 0 8 3 1-3 4-6 8-3 5 4 4 12-8 21z" fill="#f6b8cf" stroke="#eea0bd" stroke-width="2"/></symbol>
+  <symbol id="jelly" viewBox="0 0 40 56"><path d="M10 28q-4 10 1 20M20 29q4 10-1 24M30 28q-4 10 1 20" stroke="#a48ee0" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M3 28C3 6 37 6 37 28z" fill="#cdbdf3" stroke="#a48ee0" stroke-width="2" stroke-linejoin="round"/><path d="M9 18q4-6 10-6" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/><circle cx="14" cy="22" r="2" fill="#6a56b0"/><circle cx="26" cy="22" r="2" fill="#6a56b0"/><ellipse cx="10" cy="25" rx="3" ry="1.8" fill="#f6b8cf"/><ellipse cx="30" cy="25" rx="3" ry="1.8" fill="#f6b8cf"/></symbol>
+ <symbol id="fin" viewBox="0 0 50 40"><path d="M2 20 44 2 36 20l8 18z" fill="#b9a2e8" stroke="#9d86d6" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="cam" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="3" fill="#8fb3e6"/><path d="M17 10l5-3v10l-5-3z" fill="#8fb3e6"/></symbol>
+ </defs>
+</svg>
+
+
+
+<div class="w A">
+ <div class="bubble"><div class="tag"><span class="nm">Nama Kamu</span> <svg><use href="#cam"/></svg></div><span class="tx">Senang banget kamu datang!</span></div>
+ <svg class="deco fish float" style="right:-14px;top:-26px"><use href="#fish"/></svg>
+ <svg class="deco" style="right:60px;top:-18px;width:30px;height:30px"><use href="#star"/></svg>
+ <div class="deco bub" style="width:12px;height:12px;right:-22px;bottom:18px"></div>
+ <div class="deco bub" style="width:8px;height:8px;right:-34px;bottom:34px"></div>
+ <svg class="deco float" style="left:-26px;top:-34px;width:36px;height:50px;"><use href="#jelly"/></svg>
+</div>
+
+<div class="w B">
+ <div class="bubble"><div class="tag"><span class="nm">Nama Kamu</span> <svg><use href="#cam"/></svg></div><span class="tx">Makasih udah mampir ya~</span></div>
+ <div class="deco badge" style="right:-22px;top:-30px"><svg style="width:34px;height:34px"><use href="#fish"/></svg></div>
+ <svg class="deco" style="left:-18px;bottom:18px;width:30px;height:28px"><use href="#heart"/></svg>
+ <div class="deco bub" style="width:14px;height:14px;left:-30px;top:10px"></div>
+ <svg class="deco float" style="right:70px;top:-40px;width:36px;height:50px"><use href="#jelly"/></svg>
+ <svg class="deco float" style="right:-30px;bottom:-14px;width:28px;height:40px;"><use href="#jelly"/></svg>
+</div>
+
+<div class="w C">
+ <div class="bubble"><div class="tag"><span class="nm">Nama Kamu</span> <svg style="filter:brightness(3)"><use href="#cam"/></svg></div><span class="tx">Welcome to the sea~</span></div>
+ <svg class="deco" style="left:-40px;top:30px;width:56px;height:44px"><use href="#fin"/></svg>
+ <svg class="deco" style="right:-40px;top:30px;width:56px;height:44px;transform:scaleX(-1)"><use href="#fin"/></svg>
+ <svg class="deco fish" style="right:30px;bottom:-22px;width:46px;height:30px"><use href="#fish"/></svg>
+ <svg class="deco" style="left:40px;bottom:-16px;width:26px;height:26px"><use href="#star"/></svg>
+ <svg class="deco float" style="left:110px;top:-42px;width:34px;height:48px;"><use href="#jelly"/></svg>
+</div>
+<script>
+var p=new URLSearchParams(location.search),v=(p.get('v')||'A').toUpperCase();
+var w=document.querySelector('.w.'+v)||document.querySelector('.w.A');w.classList.add('on');
+if(p.get('nama'))w.querySelector('.nm').textContent=p.get('nama');
+if(p.get('teks'))w.querySelector('.tx').textContent=p.get('teks');
+</script>
+</body>
+</html>
